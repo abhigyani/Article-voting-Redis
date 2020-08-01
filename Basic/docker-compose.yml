@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    build: .
+    image: abhigyani/basic-redis
+    ports:
+      - 5000:5000 
+    container_name: flask
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6379:6379
