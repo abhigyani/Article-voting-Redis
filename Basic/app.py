@@ -6,7 +6,10 @@ cache = Redis(host='redis', port=6379)
 
 @app.route('/')
 def home():
-    key = 'welcome'
-    value = 'Hello World! I am the value of key "welcome" in the redis'
-    cache.set(key, value)
-    return cache.get(key)
+    hit_count = cache.get('hitcount')
+    if hit_count is None:
+        hit_count = 1
+    else :
+        hit_count = int(hit_count) + 1
+    cache.set('hitcount', hit_count)
+    return str(hit_count)
