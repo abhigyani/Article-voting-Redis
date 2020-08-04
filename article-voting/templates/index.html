@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Article Voting System</title>
+</head>
+<body>
+    <div>Welcome {{ user }}!</div>
+    {% for article in articles %}
+    <div style="border: 1px solid;">
+        <div style="display: flex; justify-content: space-between;">
+            <span>Posted By: {{ article.author }}</span>
+            <span>Posted On: {{ article.postedOn }}</span>
+        </div>
+        <br>
+        <div>{{ article.body }}</div>
+        <br>
+        <div>Did you Vote: {{ article.didYouVote }}</div>
+        <div><button>Upvote</button></div>
+    </div>
+    {% endfor %}
+</body>
+</html>
